@@ -1435,7 +1435,10 @@
             new Equipment('gold_armor', '鑽石護甲', '💎🛡️', 'armor', 80000, '增加 300 點生命值和 30 點防禦力', { hpBonus: 300, defenseBonus: 30 }),
             new Equipment('legendary_bow', '傳奇劍', '👑⚔️', 'weapon', 120000, '增加 120 點攻擊力', { attackBonus: 120 }),
 	    new Equipment('gold_armor', '傳奇護甲', '👑🛡️', 'armor', 180000, '增加 500 點生命值和 50 點防禦力', { hpBonus: 500, defenseBonus: 50 }),
-
+	    new Treasure('power_gem', '力量寶石', '💎', 'treasure', 100000000, '永久增加攻擊力 10%', { attackPercent: 0.10 }), 
+            new Treasure('vitality_gem', '活力寶石', '💖', 'treasure', 10000000, '永久增加生命值 15%', { hpPercent: 0.15 }), 
+            new Equipment('legendary_sword', '傳說之劍', '✨🗡️', 'weapon', 10000000, '大幅增加 200 點攻擊力', { attackBonus: 200 }),
+            new Equipment('legendary_armor', '傳說護甲', '✨🛡️', 'armor', 10000000, '大幅增加 1000 點生命值和 100 點防禦力', { hpBonus: 1000, defenseBonus: 100 }),
         ];
 
         // All possible skills (including those dropped by bosses)
@@ -1707,16 +1710,16 @@
         
         // Gacha Pool (includes equipment and new treasure types)
         const gachaPool = [
-            { item: itemDatabase.find(i => i.id === 'hp_potion'), rarity: 'common', probability: 0.30 },
-            { item: itemDatabase.find(i => i.id === 'mp_potion'), rarity: 'common', probability: 0.25 },
+            { item: itemDatabase.find(i => i.id === 'hp_potion'), rarity: 'common', probability: 0.20 },
+            { item: itemDatabase.find(i => i.id === 'mp_potion'), rarity: 'common', probability: 0.20 },
             { item: itemDatabase.find(i => i.id === 'basic_sword'), rarity: 'uncommon', probability: 0.15 },
-            { item: itemDatabase.find(i => i.id === 'basic_armor'), rarity: 'uncommon', probability: 0.10 },
+            { item: itemDatabase.find(i => i.id === 'basic_armor'), rarity: 'uncommon', probability: 0.15 },
             { item: itemDatabase.find(i => i.id === 'iron_sword'), rarity: 'rare', probability: 0.08 },
-            { item: itemDatabase.find(i => i.id === 'iron_armor'), rarity: 'rare', probability: 0.05 },
-            new Treasure('power_gem', '力量寶石', '💎', 'treasure', 0, '永久增加攻擊力 10%', { attackPercent: 0.10 }), 
-            new Treasure('vitality_gem', '活力寶石', '💖', 'treasure', 0, '永久增加生命值 15%', { hpPercent: 0.15 }), 
-            new Equipment('legendary_sword', '傳說之劍', '✨🗡️', 'weapon', 0, '大幅增加 50 點攻擊力', { attackBonus: 50 }),
-            new Equipment('legendary_armor', '傳說護甲', '✨🛡️', 'armor', 0, '大幅增加 100 點生命值和 20 點防禦力', { hpBonus: 100, defenseBonus: 20 }),
+            { item: itemDatabase.find(i => i.id === 'iron_armor'), rarity: 'rare', probability: 0.08 },
+            { item: itemDatabase.find(i => i.id === 'power_gem'), rarity: 'epic', probability: 0.05 },
+            { item: itemDatabase.find(i => i.id === 'vitality_gem'), rarity: 'epic', probability: 0.05 },
+            { item: itemDatabase.find(i => i.id === 'legendary_sword'), rarity: 'legendary', probability: 0.02 },
+            { item: itemDatabase.find(i => i.id === 'legendary_armor'), rarity: 'legendary', probability: 0.02 },
         ].map(item => {
             // Assign probabilities if not already set (for direct Treasure/Equipment instances)
             if (!item.probability) {
@@ -2779,3 +2782,4 @@
     </script>
 </body>
 </html>
+
